@@ -26,6 +26,17 @@ class Note {
       ' `desc` TEXT,'
       ' `isDeleted` INTEGER DEFAULT 0)';
 
+  /// Phương thức này được thiết lập để tạo nên danh sách các ghi chú
+  /// được lấy về từ CSDL, nó được tạo dưới dạng danh sách các ghi chú
+  /// theo cấu trúc Map mà không cần khởi tạo đối tượng nên nó là static.
+  static List<Note> fromList(List<Map<String, dynamic>> query) {
+    List<Note> items = List<Note>();
+    for (Map map in query) {
+      items.add(Note.fromMap(map));
+    }
+    return items;
+  }
+
   /// Hàm tạo có tên, đây là một hàm tạo từ đối số là dữ liệu đưa vào
   /// dưới dạng Map
   Note.fromMap(Map data)
