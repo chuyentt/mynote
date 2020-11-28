@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Note {
   /// id tự sinh ra ngẫu nhiên
-  final String id = UniqueKey()
+  String id = UniqueKey()
       .hashCode
       .toUnsigned(20)
       .toRadixString(16)
@@ -25,4 +25,21 @@ class Note {
       ' `title` TEXT,'
       ' `desc` TEXT,'
       ' `isDeleted` INTEGER DEFAULT 0)';
+
+  /// Hàm tạo có tên, đây là một hàm tạo từ đối số là dữ liệu đưa vào
+  /// dưới dạng Map
+  Note.fromMap(Map data)
+      : id = data['id'],
+        title = data['title'],
+        desc = data['desc'],
+        isDeleted = data['isDeleted'] == 1 ? true : false;
+
+  /// Phương thức của đối tượng, nó cho phép tạo ra dữ liệu dạng Map từ
+  /// dữ liệu của một đối tượng ghi chú.
+  Map<String, dynamic> toMap() => {
+        'id': id,
+        'title': title,
+        'desc': desc,
+        'isDeleted': isDeleted ? 1 : 0,
+      };
 }
