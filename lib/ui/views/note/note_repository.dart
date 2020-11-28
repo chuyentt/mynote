@@ -4,6 +4,17 @@ import 'package:mynote/repostory/repository.dart';
 import 'note_model.dart';
 
 class NoteRepository implements Repository<Note> {
+  NoteRepository._internal(LocalRepository localRepo) {
+    this.localRepo = localRepo;
+  }
+
+  static final _cache = <String, NoteRepository>{};
+
+  factory NoteRepository() {
+    return _cache.putIfAbsent('NoteRepository',
+        () => NoteRepository._internal(LocalRepository.instance));
+  }
+
   @override
   LocalRepository localRepo;
 
@@ -29,8 +40,7 @@ class NoteRepository implements Repository<Note> {
   @override
   Future<List<Note>> items() async {
     final db = await localRepo.db();
-    var maps;
-    await db.query(Note.tableName);
+    var maps = await db.query(Note.tableName);
     return Note.fromList(maps);
   }
 }
