@@ -3,7 +3,7 @@ import 'local_repository.dart';
 /// Lớp trừu tượng để cho các model thừa kế và dùng trong việc
 /// thêm / sửa / xóa và lấy dữ liệu (Create, Read, Update, Delete - CRUD)
 abstract class Repository<T> {
-  LocalRepository localRepository;
+  LocalRepository localRepo;
 
   Future<dynamic> insert(T item);
 
