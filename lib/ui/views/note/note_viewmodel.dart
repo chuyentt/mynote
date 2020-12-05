@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:mynote/ui/views/note/note_repository.dart';
 import 'package:stacked/stacked.dart';
 
@@ -35,6 +36,11 @@ class NoteViewModel extends BaseViewModel {
   /// Cần có một getter để lấy ra trạng thái view cục bộ cho view
   NoteViewState get state => _state;
 
+  Note editingItem;
+
+  var editingControllerTitle = TextEditingController();
+  var editingControllerDesc = TextEditingController();
+
   ///
   var repo = NoteRepository();
 
@@ -50,11 +56,27 @@ class NoteViewModel extends BaseViewModel {
   }
 
   void addItem() {
-    var title = DateTime.now().millisecondsSinceEpoch.toString();
-    var desc = DateTime.now().toLocal().toString();
+    var timestamp = DateTime.now();
+    var title = timestamp.millisecondsSinceEpoch.toString();
+    var desc = timestamp.toLocal().toString();
+
     var item = Note(title, desc);
     repo.insert(item).then((value) {
       reloadItems();
     });
+  }
+
+  void updateItem() {
+    editingControllerTitle.text = editingItem.title;
+    editingControllerDesc.text = editingItem.desc;
+    state = NoteViewState.updateView;
+  }
+
+  void saveItem() {
+    // TODO lưu editingItem
+
+    // TODO editingItem = null
+    editingItem = null;
+    notifyListeners();
   }
 }
