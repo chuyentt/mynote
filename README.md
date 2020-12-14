@@ -1,11 +1,11 @@
 # mynote
 Xây dựng ứng dụng Note
-(Đây là phần thực hành của nội dung chương 4 trong học phần *Phát triển ứng dụng đa nền tảng* đang được giảng dạy tại Khoa Công nghệ thông tin của Trường Đại học Mỏ - Địa chất)
+(Đây là phần thực hành của nội dung chương 4 trong học phần *Phát triển ứng dụng di động đa nền tảng* đang được giảng dạy tại Khoa Công nghệ thông tin của Trường Đại học Mỏ - Địa chất)
 
 ## Bắt đầu
 
 ### Tạo một kho lưu trữ
-Bài viết này sử dụng kho lưu trữ mẫu (template) GitHub để giúp bạn dễ dàng bắt đầu. Mẫu có một ứng dụng web tĩnh rất đơn giản để chúng ta có thể sử dụng như một điểm khởi đầu.
+Bài viết này sử dụng kho lưu trữ mẫu (template) GitHub để giúp bạn dễ dàng bắt đầu. Mẫu có một ứng dụng Flutter rất đơn giản để chúng ta có thể sử dụng như một điểm khởi đầu.
 
 > 1. Đảm bảo rằng bạn đã đăng nhập vào GitHub và điều hướng đến vị trí sau để tạo một kho lưu trữ mới:
 https://github.com/chuyentt/mynote/generate - nếu liên kết không hoạt động, vui lòng đăng nhập vào GitHub và thử lại.
